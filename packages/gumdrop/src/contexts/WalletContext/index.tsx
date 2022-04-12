@@ -27,6 +27,7 @@ import { notify } from '../../utils/common';
 import { MetaplexModal } from '../../components/MetaplexModal';
 import { CollapsePanel } from '../../components/CollapsePanel';
 import urls from '../../utils/urls';
+import { Link as HyperLink } from '@mui/material';
 
 export interface WalletModalContextState {
   visible: boolean;
@@ -146,12 +147,9 @@ export const WalletModalProvider: FC<{ children: ReactNode }> = ({
       if (found) {
         notify({
           message: 'You can claim whitelist tokens',
-          description: [
-            <p>Go to this</p>,
-            <a href={found.url} style={{ marginLeft: '6px', color: 'blue' }}>
-              claim url
-            </a>,
-          ],
+          description: (
+            <HyperLink href={found.url}>Go to this claim url</HyperLink>
+          ),
         });
       } else {
         notify({

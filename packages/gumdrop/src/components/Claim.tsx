@@ -1129,10 +1129,15 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
       notify({
         message: `Claim succeeded: ${idx + 1} of ${fullySigned.length}`,
         description: (
-          <HyperLink href={explorerLinkFor(result.txid, connection)}>
-            View transaction on explorer
+          <HyperLink href="https://www.matukilabs.io/get">
+            Click here to mint your NFT
           </HyperLink>
         ),
+        // description: (
+        //   <HyperLink href={explorerLinkFor(result.txid, connection)}>
+        //     View transaction on explorer
+        //   </HyperLink>
+        // ),
       });
     }
 
