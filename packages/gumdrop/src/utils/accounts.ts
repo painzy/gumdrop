@@ -90,7 +90,7 @@ export const fetchCoder = async (
     connection: connection,
   } as anchor.Provider);
   if (!idl) return null;
-  return new anchor.Coder(idl);
+  return new anchor.SplTokenCoder(idl);
 };
 
 export const getCandyConfig = async (
