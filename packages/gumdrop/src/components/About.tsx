@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Stack } from '@mui/material';
+import { Stack, Box } from '@mui/material';
 
 import { useWindowDimensions } from '../components/AppBar';
 
@@ -140,11 +140,15 @@ export const About = () => {
       style={{
         margin: 'auto',
         maxWidth: Math.min(width, maxWidth),
+        alignItems: 'center',
       }}
     >
-      {steps.map((s, idx) => (
+      {/* {steps.map((s, idx) => (
         <div key={idx}>{s.inner}</div>
-      ))}
+      ))} */}
+      <Box style={{ maxWidth: '570px', display: 'flex' }}>
+        <img src="https://www.matukilabs.io/images/logo-white.png" />
+      </Box>
     </Stack>
   );
 };
