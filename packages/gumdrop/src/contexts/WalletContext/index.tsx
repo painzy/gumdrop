@@ -26,6 +26,7 @@ import React, {
 import { notify } from '../../utils/common';
 import { MetaplexModal } from '../../components/MetaplexModal';
 import { CollapsePanel } from '../../components/CollapsePanel';
+import urls from '../../utils/urls';
 
 export interface WalletModalContextState {
   visible: boolean;
@@ -134,6 +135,32 @@ export const WalletModalProvider: FC<{ children: ReactNode }> = ({
     }
     setConnected(!!publicKey);
   }, [publicKey, connected, setConnected]);
+
+  // go to custom claim url
+  useEffect(() => {
+    if (connected && publicKey) {
+      const base58 = publicKey.toBase58();
+
+      const found = urls.find(url => url.handle === base58);
+
+      if (found) {
+        notify({
+          message: 'You can claim whitelist tokens',
+          description: [
+            <p>Go to this</p>,
+            <a href={found.url} style={{ marginLeft: '6px', color: 'blue' }}>
+              claim url
+            </a>,
+          ],
+        });
+      } else {
+        notify({
+          message: 'Claim error',
+          description: "You're not whitelisted",
+        });
+      }
+    }
+  }, [publicKey, connected]);
 
   return (
     <WalletModalContext.Provider

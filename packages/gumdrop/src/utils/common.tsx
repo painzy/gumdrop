@@ -94,7 +94,16 @@ export function notify({
   (notification as any)[type]({
     message: <span style={{ color: 'black' }}>{message}</span>,
     description: (
-      <span style={{ color: 'black', opacity: 0.5 }}>{description}</span>
+      <span
+        style={{
+          color: 'black',
+          opacity: 0.5,
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        {description}
+      </span>
     ),
     placement,
     style: {
