@@ -1205,7 +1205,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
             wrap();
           }}
         >
-          Claim Gumdrop
+          Claim Token
         </Button>
         {loading && loadingProgress()}
       </Box>
